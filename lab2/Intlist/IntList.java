@@ -82,7 +82,27 @@ public class IntList {
 
     public static IntList dcatenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+
+        IntList finalPointer = findLastPointer(A);
+        if(finalPointer==null){
+            return B;
+        }else{
+            finalPointer.rest=B;
+        }
+
+        return A;
+    }
+
+    public static IntList findLastPointer(IntList A){
+            if(A==null){
+                return  null;
+            }
+
+            if(A.rest!=null){
+                return findLastPointer(A.rest);
+            }else{
+                return A;
+            }
     }
 
     /**
@@ -91,7 +111,28 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+        if(A!=null){
+            IntList secIntListA = new IntList(A.first,null);
+//            IntList secIntListB = new IntList(A.first,null);
+            IntList pointerA=secIntListA;
+//            IntList pointerB=secIntListB;
+            A=A.rest;
+//            B=B.rest;
+            for(;A.rest!=null;A=A.rest){
+                pointerA.rest=new IntList(A.first,null);
+                pointerA=pointerA.rest;
+            }
+            pointerA.rest=new IntList(A.first,null);
+            pointerA=pointerA.rest;
+//            for(;B.rest!=null;B=B.rest){
+//                pointerB.rest=new IntList(B.first,null);
+//                pointerB=pointerB.rest;
+//            }
+            pointerA.rest=B;
+            return secIntListA;
+        }else{
+            return B;
+        }
     }
 
 
