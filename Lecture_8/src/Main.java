@@ -23,6 +23,7 @@ class make_dog_shout{
 }
 interface dog{
     void makeNoise();
+    default void makeNoise3(){};
 
 }
 class dogA implements dog{
