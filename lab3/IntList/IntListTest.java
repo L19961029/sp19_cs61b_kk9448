@@ -68,9 +68,9 @@ public class IntListTest {
 
     @Test(timeout = 1000)
     public void testReverse(){
-        IntList input = IntList.of(1,2,3);
+        IntList input = IntList.of(1,2,3,4);
 //      IntList test= IntList.of(9,8,7);
-        IntList expect = IntList.of(3,2,1);
+        IntList expect = IntList.of(4,3,2,1);
         IntList reverse =IntList.reverse(input);
         assertEquals(expect,reverse);
 //      assertEquals(test,input);

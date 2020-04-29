@@ -292,21 +292,33 @@ public class IntList {
         }
         tmp[0] = savePointer.first;
         /** destructive*/
-//        IntList  B=x;
-//        for(int j=0;j<=k;j++){
-//            B.first=tmp[j];
-//            B=B.rest;
-//        }
-
-//        return x;
-        /** none-destructive*/
-        IntList ans = new IntList(0, null);
-        IntList  C = ans;
-        for (int j = 0; j <= i; j++) {
-            C.rest = new IntList(tmp[j], null);
-            C = C.rest;
+        IntList  B=x;
+        for(int j=0;j<=k;j++){
+            B.first=tmp[j];
+            B=B.rest;
         }
-        return ans.rest;
+
+        return x;
+        /** none-destructive*/
+//        IntList ans = new IntList(0, null);
+//        IntList  C = ans;
+//        for (int j = 0; j <= i; j++) {
+//            C.rest = new IntList(tmp[j], null);
+//            C = C.rest;
+//        }
+//        return ans.rest;
     }
+//    public static IntList reverse(IntList A) {
+//        if (A == null) {
+//            return null;
+//        }
+//        IntList R, temp;
+//        for (R = null; A != null; A = temp) {
+//            temp = A.rest;
+//            A.rest = R;
+//            R = A;
+//        }
+//        return R;
+//    }
 }
 
