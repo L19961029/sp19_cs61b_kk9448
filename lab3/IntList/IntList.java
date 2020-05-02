@@ -273,32 +273,32 @@ public class IntList {
         return out.toString();
     }
 
-
-    public static IntList reverse(IntList x) {
-        if (x == null) {
-            return null;
-        }
-        IntList  A = x;
-        int i = 0;
-        for (; A.rest != null; A = A.rest) {
-            i = i + 1;
-        }
-        int[] tmp = new int[i + 1];
-        int k = i;
-        IntList savePointer = x;
-        i = 0;
-        for (; savePointer.rest != null; savePointer = savePointer.rest, i++) {
-            tmp[k - i] = savePointer.first;
-        }
-        tmp[0] = savePointer.first;
-        /** destructive*/
-        IntList  B=x;
-        for(int j=0;j<=k;j++){
-            B.first=tmp[j];
-            B=B.rest;
-        }
-
-        return x;
+/** method 1 */
+//    public static IntList reverse(IntList x) {
+//        if (x == null) {
+//            return null;
+//        }
+//        IntList  A = x;
+//        int i = 0;
+//        for (; A.rest != null; A = A.rest) {
+//            i = i + 1;
+//        }
+//        int[] tmp = new int[i + 1];
+//        int k = i;
+//        IntList savePointer = x;
+//        i = 0;
+//        for (; savePointer.rest != null; savePointer = savePointer.rest, i++) {
+//            tmp[k - i] = savePointer.first;
+//        }
+//        tmp[0] = savePointer.first;
+//        /** destructive*/
+//        IntList  B=x;
+//        for(int j=0;j<=k;j++){
+//            B.first=tmp[j];
+//            B=B.rest;
+//        }
+//
+//        return x;
         /** none-destructive*/
 //        IntList ans = new IntList(0, null);
 //        IntList  C = ans;
@@ -307,18 +307,23 @@ public class IntList {
 //            C = C.rest;
 //        }
 //        return ans.rest;
-    }
-//    public static IntList reverse(IntList A) {
-//        if (A == null) {
-//            return null;
-//        }
-//        IntList R, temp;
-//        for (R = null; A != null; A = temp) {
-//            temp = A.rest;
-//            A.rest = R;
-//            R = A;
-//        }
-//        return R;
 //    }
+    /** 扣除法 **/
+    public static IntList reverse(IntList A) {
+        if (A==null) {
+            return null;
+        }
+        IntList tmp;
+        IntList C = null;
+        for (; A != null; ) {
+            tmp = A.rest;
+            A.rest = C;
+            C = A;
+            A=tmp;
+
+        }
+        return C;
+
+    }
 }
 
