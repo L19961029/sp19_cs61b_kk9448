@@ -8,6 +8,13 @@ public class Main {
         c.makeNoise();
         dogA d=(dogA) c;
         System.out.println(d.b);
+        dogC x = new dogC();
+        www(x);
+    }
+
+
+    public static void www(dogA x) {
+        x.makeNoise();
     }
 }
 class make_dog_shout{
@@ -45,3 +52,9 @@ class dogB implements dog{
     }
 }
 
+class dogC extends dogA {
+    @Override
+    public void makeNoise() {
+        System.out.print("i am dog c");
+    }
+}
